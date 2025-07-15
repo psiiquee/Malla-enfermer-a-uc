@@ -127,6 +127,10 @@
             });
           }
         });
+        // ✅ NUEVO: Doble clic para tachar
+div.addEventListener('dblclick', () => {
+  div.classList.toggle('done');
+});
         semDiv.appendChild(div);
       });
       container.appendChild(semDiv);
