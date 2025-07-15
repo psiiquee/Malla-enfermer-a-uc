@@ -127,15 +127,45 @@
             });
           }
         });
-        // ✅ NUEVO: Doble clic para tachar
+        // ✅ NUEVO: Doble clic para tachar y desbloquear siguientes
 div.addEventListener('dblclick', () => {
+  if (!div.classList.contains('unlocked')) return;
+
   div.classList.toggle('done');
-});
-        semDiv.appendChild(div);
+
+  if (div.classList.contains('done')) {
+    // desbloquear los cursos que tienen este como prerrequisito
+    curriculum.forEach((s, sI) => {
+      s.courses.forEach((c, cI) => {
+        if (c.prereq === course.code) {
+          const selector = `.course[data-sem="${sI}"][data-idx="${cI}"]`;
+          const next = document.querySelector(selector);
+          if (next) next.classList.add('unlocked');
+        }
       });
-      container.appendChild(semDiv);
     });
-  </script>
+  }
+});
+        // ✅ NUEVO: Doble clic para tachar y desbloquear siguientes
+div.addEventListener('dblclick', () => {
+  if (!div.classList.contains('unlocked')) return;
+
+  div.classList.toggle('done');
+
+  if (div.classList.contains('done')) {
+    // desbloquear los cursos que tienen este como prerrequisito
+    curriculum.forEach((s, sI) => {
+      s.courses.forEach((c, cI) => {
+        if (c.prereq === course.code) {
+          const selector = `.course[data-sem="${sI}"][data-idx="${cI}"]`;
+          const next = document.querySelector(selector);
+          if (next) next.classList.add('unlocked');
+        }
+      });
+    });
+  }
+});
+        
 
   <!-- Three.js (opcional, si lo requieres más adelante) -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
