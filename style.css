@@ -16,12 +16,6 @@ body {
   overflow: auto;
 }
 
-#canvas {
-  display: block;
-  width: 100vw;
-  height: 60vh;
-}
-
 #curriculum-container {
   position: static;
   width: 100%;
@@ -54,12 +48,18 @@ body {
   position: relative;
   opacity: 0.5;
   cursor: not-allowed;
-  transition: opacity var(--transition);
+  transition: all var(--transition);
 }
 
 .course.unlocked {
   opacity: 1;
   cursor: pointer;
+}
+
+.course.done {
+  background: var(--pink-main);
+  text-decoration: line-through;
+  opacity: 0.8;
 }
 
 .course .title {
@@ -74,14 +74,4 @@ body {
 
 .course.open .desc {
   max-height: 200px;
-}
-
-/* ✅ TACHADO al hacer doble clic */
-.course.done {
-  opacity: 0.6;
-  background: #ccc;
-}
-
-.course.done .title {
-  text-decoration: line-through;
 }
