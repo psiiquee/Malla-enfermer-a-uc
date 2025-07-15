@@ -122,11 +122,6 @@
                   document
                     .querySelector(`.course[data-sem="${sI}"][data-idx="${cI}"]`)
                     ?.classList.add('unlocked');
-                }
-              });
-            });
-          }
-        });
         // ✅ NUEVO: Doble clic para tachar y desbloquear siguientes
 div.addEventListener('dblclick', () => {
   if (!div.classList.contains('unlocked')) return;
