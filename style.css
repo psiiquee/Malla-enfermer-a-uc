@@ -1,26 +1,82 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  height: 100%;
-  background: #ffeef8; /* rosa pastel */
-  font-family: 'Pacifico', cursive;
+:root {
+--pink-light: #ffe8f0;
+--pink-main: #ff9ec9;
+--pink-dark: #ff6fa7;
+--text-dark: #333;
+--border-radius: 12px;
+--transition: 0.3s;
+--font-anime: 'Pacifico', cursive;
 }
-#canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
+body {
+margin: 0;
+font-family: var(--font-anime), sans-serif;
+background: var(--pink-light) url('background-pattern.png') repeat;
+color: var(--text-dark);
+overflow: hidden;
 }
 #overlay {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 182, 193, 0.9); /* rosa claro semitransparente */
-  color: #880e4f; /* vino suave */
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 1.2rem;
-  z-index: 1;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+position: absolute;
+top: 10px;
+left: 50%;
+transform: translateX(-50%);
+background: var(--pink-main);
+padding: 0.5rem 1rem;
+border-radius: var(--border-radius);
+box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+font-size: 0.9rem;
+color: white;
+z-index: 10;
 }
+#canvas {
+display: block;
+width: 100vw;
+height: 60vh;
+}
+#curriculum-container {
+position: absolute;
+bottom: 0;
+width: 100%;
+max-width: 1000px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1rem;
+padding: 1rem;
+background: rgba(255,255,255,0.9);
+}
+.semester {
+background: white;
+border-radius: var(--border-radius);
+padding: 1rem;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.semester h2 {
+margin-top: 0;
+color: var(--pink-dark);
+}
+.course {
+background: var(--pink-light);
+margin: 0.5rem 0;
+padding: 0.75rem;
+border-radius: var(--border-radius);
+position: relative;
+opacity: 0.5;
+cursor: not-allowed;
+transition: opacity var(--transition);
+}
+.course.unlocked {
+opacity: 1;
+cursor: pointer;
+}
+.course .title {
+font-weight: bold;
+}
+.course .desc {
+max-height: 0;
+overflow: hidden;
+transition: max-height var(--transition);
+}
+.course.open .desc {
+max-height: 200px;
+}
+
