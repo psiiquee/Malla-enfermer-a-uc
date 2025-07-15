@@ -1,0 +1,26 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  background: #ffeef8; /* rosa pastel */
+  font-family: 'Pacifico', cursive;
+}
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#overlay {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 182, 193, 0.9); /* rosa claro semitransparente */
+  color: #880e4f; /* vino suave */
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
