@@ -2,20 +2,28 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Malla Interactiva UC - Tema Narumi Momose</title>
   <!-- Fuente temática tipo anime -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="overlay">Click en un curso para marcarlo</div>
+  <header class="header">
+    <img src="narumi.png" alt="Narumi Momose" class="avatar">
+    <h1>Malla Interactiva Enfermería UC</h1>
+    <div id="overlay">Haz clic en un curso para marcarlo</div>
+  </header>
+
+  <!-- Canvas para Three.js (opcional) -->
   <canvas id="canvas"></canvas>
 
-  <!-- Three.js desde CDN -->
+  <!-- Contenedor de la malla 2D interactiva -->
+  <main id="curriculum-container"></main>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/controls/OrbitControls.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
-  
