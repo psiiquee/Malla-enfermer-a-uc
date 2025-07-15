@@ -8,19 +8,13 @@
   --font-anime: 'Pacifico', cursive;
 }
 
- body {
--  margin: 0;
--  font-family: var(--font-anime), sans-serif;
--  background: var(--pink-light) url('background-pattern.png') repeat;
--  color: var(--text-dark);
--  overflow: hidden;
-+  margin: 0;
-+  font-family: var(--font-anime), sans-serif;
-+  background: var(--pink-light) url('background-pattern.png') repeat;
-+  color: var(--text-dark);
-+  /* permite scroll */
-+  overflow: auto;
- }
+body {
+  margin: 0;
+  font-family: var(--font-anime), sans-serif;
+  background: var(--pink-light) url('background-pattern.png') repeat;
+  color: var(--text-dark);
+  overflow: auto; /* permite scroll */
+}
 
 #overlay {
   position: absolute;
@@ -43,44 +37,23 @@
 }
 
 #curriculum-container {
-
-position: absolute;
-
-bottom: 0;
-
-width: 100%;
-
-max-width: 1000px;
-
-margin: 0 auto;
-
-/* que se sitúe en flujo normal y se muestre tras el header */
-
-position: static;
-
-width: 100%;
-
-+max-width: 1000px;
-
-margin: trem auto;
-
-display:grid;
-
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-gap: 1rem;
-
-padding:1rem;
-
-background: rgba(255,255,255,0.9);
-}  
+  position: static;
+  width: 100%;
+  max-width: 1000px;
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+}
 
 .semester {
   background: white;
   border-radius: var(--border-radius);
   padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 
 .semester h2 {
   margin-top: 0;
@@ -116,6 +89,8 @@ background: rgba(255,255,255,0.9);
 .course.open .desc {
   max-height: 200px;
 }
+
+/* ✅ Estilo para curso tachado */
 .course.done {
   text-decoration: line-through;
   opacity: 0.6;
