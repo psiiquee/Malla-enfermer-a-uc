@@ -13,21 +13,7 @@ body {
   font-family: var(--font-anime), sans-serif;
   background: var(--pink-light) url('background-pattern.png') repeat;
   color: var(--text-dark);
-  overflow: auto; /* permite scroll */
-}
-
-#overlay {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--pink-main);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  font-size: 0.9rem;
-  color: white;
-  z-index: 10;
+  overflow: auto;
 }
 
 #canvas {
@@ -90,9 +76,12 @@ body {
   max-height: 200px;
 }
 
-/* ✅ Estilo para curso tachado */
+/* ✅ TACHADO al hacer doble clic */
 .course.done {
-  text-decoration: line-through;
   opacity: 0.6;
   background: #ccc;
+}
+
+.course.done .title {
+  text-decoration: line-through;
 }
