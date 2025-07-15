@@ -1,3 +1,4 @@
+import { curriculum } from './data.js';
 // Inicialización Three.js (opcional si deseas 3D)
 const canvas = document.getElementById('canvas');
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
