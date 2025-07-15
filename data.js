@@ -1,6 +1,4 @@
  export const curriculum = [
-/* Semestre 1 /
-{
 semester: 1,
 courses: [
 { code: "ENF101", name: "Anatomía General y del Desarrollo", desc: "Estudio de la estructura y función del cuerpo humano durante distintas etapas.", prereq: null },
