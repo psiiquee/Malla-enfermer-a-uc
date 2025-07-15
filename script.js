@@ -1,15 +1,22 @@
 import { curriculum } from './data.js';
-
 // Inicialización Three.js (opcional si deseas 3D)
 const canvas = document.getElementById('canvas');
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight * 0.6);
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / (window.innerHeight * 0.6), 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / (window.innerHeight * 0.6),
+  0.1,
+  1000
+);
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 camera.position.set(0, 1, 5);
 controls.update();
-const animate = () => { requestAnimationFrame(animate); renderer.render(scene, camera); };
+const animate = () => {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+};
 animate();
 
 // Lógica 2D de la malla
@@ -30,12 +37,14 @@ curriculum.forEach((sem, semIndex) => {
       <div class="desc">${course.desc}</div>
     `;
 
+    // Si no tiene prerequisito, empieza desbloqueado
     if (!course.prereq) div.classList.add('unlocked');
 
     div.addEventListener('click', () => {
       if (!div.classList.contains('unlocked')) return;
       div.classList.toggle('open');
 
+      // Al abrir, desbloquea los cursos que lo tengan como prereq
       if (div.classList.contains('open')) {
         curriculum.forEach((s, sI) => {
           s.courses.forEach((c, cI) => {
@@ -49,6 +58,7 @@ curriculum.forEach((sem, semIndex) => {
       }
     });
 
+    // ← Aquí estaba el typo, ahora queda bien:
     semDiv.appendChild(div);
   });
 
